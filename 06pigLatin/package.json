@@ -1,0 +1,19 @@
+{
+  "name": "06piglatin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "06pigLatin.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start":"node 06pigLatin.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2"
+  }
+}

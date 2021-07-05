@@ -1,49 +1,71 @@
-function spinalCase(str) {
-  // Adds space in front of all Captial letters and trims the outlying space
-  let s = str.replace(/([A-Z])/g, ' $1').trim();
-  // console.log(s);
+function spinalCase(string) {
+  let spaceAddedInFrontOfCapitalLettersAndEdgeSpaceTrimmed = string
+    .replace(/([A-Z])/g, ' $1')
+    .trim();
 
-  // Removes all _
-  let test0 = s.replace(/\_/g, '');
-  // console.log(test0);
 
-  // Removes all emptry spaces when there are more than one of them
-  let test0point1 = test0.replace(/\s\s+/g, ' ');
-  // console.log(test0point1);
+  let allUnderScoresRemoved =
+    spaceAddedInFrontOfCapitalLettersAndEdgeSpaceTrimmed.replace(
+      /\_/g,
+      ''
+    );
+  let removeEmptySPacesWhenTwoInARow = allUnderScoresRemoved.replace(
+    /\s\s+/g,
+    ' '
+  );
 
-  // Replace empty spaces with -
+  let replaceEmptySpacesWithDash = removeEmptySPacesWhenTwoInARow
+    .replace(/\s/g, '-')
+    .toLowerCase();
 
-  let test0point2 = test0point1.replace(/\s/g, '-').toLowerCase();
-  console.log(test0point2);
-
-  return test0point2;
+  return replaceEmptySpacesWithDash;
 }
 
-// spinalCase('This Is Spinal Tap');
-// spinalCase('thisIsSpinalTap');
-// spinalCase('The_Andy_Griffith_Show');
-// spinalCase('Teletubbies say Eh-oh');
-// spinalCase('AllThe-small Things');
+// For Testing
+spinalCase('This Is Spinal Tap');
+spinalCase('thisIsSpinalTap');
+spinalCase('The_Andy_Griffith_Show');
+spinalCase('Teletubbies say Eh-oh');
+spinalCase('AllThe-small Things');
 
 module.exports = spinalCase;
 
-// split and replace
+// Solution 1
+// function spinalCase(str) {
+//   // Create a variable for the white space and underscores.
+//   var regex = /\s+|_+/g;
 
-// // Remove all spaces
-// let test123 = s.replace(/\s+/g, '');
-// // console.log(test123);
+//   // Replace low-upper case to low-space-uppercase
+//   str = str.replace(/([a-z])([A-Z])/g, "$1 $2");
 
-// let test0123 = s.replace(/\s/g, '-').toLowerCase();
-// // console.log(test0123);
+//   // Replace space and underscore with -
+//   return str.replace(regex, "-").toLowerCase();
+// }
 
-// // Split using empty space
-// let splited = str.replace(/\s/g, '-').toLowerCase();
-// // console.log(splited);
+// // test here
+// spinalCase("This Is Spinal Tap");
 
-// let test = s.replace(/\s/g, '-').toLowerCase();
-// // console.log(test);
-// let test1 = str.replace(/\_|\s/g, '-');
-// // console.log(test1);
-// let test3 = test1.replace(/([A-Z])/g, ' $1').trim();
-// // console.log(test3);
-// // return str.replace(/\_|\s/g, '-').toLowerCase();
+//Solution 2
+// function spinalCase(str) {
+//   // Replace low-upper case to low-space-uppercase
+//   str = str.replace(/([a-z])([A-Z])/g, "$1 $2");
+//   // Split on whitespace and underscores and join with dash
+//   return str
+//     .toLowerCase()
+//     .split(/(?:_| )+/)
+//     .join("-");
+// }
+
+// // test here
+// spinalCase("This Is Spinal Tap");
+
+// Solution 3
+// function spinalCase(str) {
+//   // "It's such a fine line between stupid, and clever."
+//   // --David St. Hubbins
+
+//   return str
+//     .split(/\s|_|(?=[A-Z])/)
+//     .join("-")
+//     .toLowerCase();
+// }
