@@ -1,0 +1,19 @@
+{
+  "name": "08dnapairing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dnaPairing.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node dnaPairing.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2"
+  }
+}

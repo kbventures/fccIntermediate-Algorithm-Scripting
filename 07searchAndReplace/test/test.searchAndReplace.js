@@ -45,14 +45,3 @@ describe('searchAndReplace Test Suit', () => {
     expect(result).to.be.eql('Let us get back to more Algorithms');
   });
 });
-
-/*
-
-
-myReplace("This has a spellngi error", "spellngi", "spelling") should return the string This has a spelling error.
-
-myReplace("His name is Tom", "Tom", "john") should return the string His name is John.
-
-myReplace("Let us get back to more Coding", "Coding", "algorithms") should return the string Let us get back to more Algorithms.
-
-*/
