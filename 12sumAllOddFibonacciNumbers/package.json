@@ -1,0 +1,19 @@
+{
+  "name": "12sumalloddfibonaccinumbers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sumAllOddFibonacciNumbers.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node sumAllOddFibonacciNumbers.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2"
+  }
+}
