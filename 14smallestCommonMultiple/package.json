@@ -1,0 +1,17 @@
+{
+  "name": "14smallestcommonmultiple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "smallestCommonMultiple.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node smallestCommonMultiple.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
