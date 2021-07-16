@@ -23,10 +23,10 @@ describe('Smallest Common Multiple Test Suite', () => {
     expect(result).to.be.eql(2520);
   });
 
-  // it('smallestCommons([1, 13]) should return 360360.', () => {
-  //   const result = smallestCommons([1, 13]);
-  //   expect(result).to.be.eql(360360);
-  // });
+  it('smallestCommons([1, 13]) should return 360360.', () => {
+    const result = smallestCommons([1, 13]);
+    expect(result).to.be.eql(360360);
+  });
 
   it('smallestCommons([23, 18]) should return 6056820.', () => {
     const result = smallestCommons([23, 18]);

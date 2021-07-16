@@ -1,3 +1,17 @@
+function findRangeLow(num1, num2) {
+  if (num1 < num2) {
+    return num1;
+  }
+  return num2;
+}
+
+function whatIsLargestNumberInRange(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  }
+  return num2;
+}
+
 function isMultiple(currentRangeNum, counterNum) {
   if (counterNum % currentRangeNum == 0) {
     return true;
@@ -7,20 +21,14 @@ function isMultiple(currentRangeNum, counterNum) {
 
 function smallestCommons(arr) {
   let allNumbersInRangAreNotMultipletOfCounter = true;
-  let counter = 1;
+  let counter = whatIsLargestNumberInRange(arr[0], arr[1]);
+  let rangeHigh = whatIsLargestNumberInRange(arr[0], arr[1]);
+  let rangeLow = findRangeLow(arr[0], arr[1]);
 
-  let ascendingOrDescending = arr[1];
-  if (arr[1] < arr[0]) {
-    ascendingOrDescending = arr[0];
-  }
-
-  // Algorithm continues as long as all numbers in range not multiple of counter
   while (allNumbersInRangAreNotMultipletOfCounter) {
     allNumbersInRangAreNotMultipletOfCounter = false;
-    // For Loop groups goes through range of ascending numbers ie: 1 to 5
-    for (let index = 0; index < ascendingOrDescending; index++) {
-      let currentRangeNumber = index + 1;
-
+    for (let index = rangeLow; index <= rangeHigh; index++) {
+      let currentRangeNumber = index;
       let isMultipleResult = isMultiple(currentRangeNumber, counter);
 
       if (!isMultipleResult) {
@@ -30,10 +38,8 @@ function smallestCommons(arr) {
     if (!allNumbersInRangAreNotMultipletOfCounter) {
       return counter;
     }
-    counter++;
+    counter = counter + rangeHigh;
   }
-
-  return counter;
 }
 
 smallestCommons([5, 1]);
