@@ -45,3 +45,5 @@ function smallestCommons(arr) {
 smallestCommons([5, 1]);
 
 module.exports = smallestCommons;
+
+// https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-smallest-common-multiple/16075

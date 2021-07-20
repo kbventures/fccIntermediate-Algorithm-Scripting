@@ -1,0 +1,16 @@
+{
+  "name": "15dropit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dropIt.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node dropIt.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2"
+  }
+}
