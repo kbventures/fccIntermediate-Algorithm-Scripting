@@ -1,0 +1,15 @@
+{
+  "name": "16steamroller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "steamRoller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2"
+  }
+}
