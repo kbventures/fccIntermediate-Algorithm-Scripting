@@ -1,8 +1,8 @@
 {
-  "name": "20make_a_person",
+  "name": "20map_the_debris",
   "version": "1.0.0",
   "description": "",
-  "main": "makeAperson.js",
+  "main": "make_the_debris.js",
   "directories": {
     "test": "test"
   },
