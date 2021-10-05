@@ -30,3 +30,5 @@ var Person = function (firstAndLast) {
 var bob = new Person('Bob Ross');
 bob.getFullName();
 bob.setFirstName('Haskell');
+
+module.exports = Person;
