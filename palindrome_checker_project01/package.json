@@ -1,0 +1,21 @@
+{
+  "name": "palindrome_checker_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "palindrome_checker.js",
+  "directories": {
+    "test": "mocha"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-asserttype": "^1.0.5",
+    "mocha": "^9.1.2",
+    "should": "^13.2.3"
+  }
+}
