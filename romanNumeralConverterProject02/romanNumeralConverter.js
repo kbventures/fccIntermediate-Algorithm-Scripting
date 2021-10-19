@@ -12,7 +12,6 @@ function convertToRoman(num) {
     romanNumeral.push('CM');
 
     num = tempCounter;
-    console.log(num);
     if (num === 0) return romanNumeral.join('');
   }
 
@@ -78,7 +77,6 @@ function convertToRoman(num) {
   }
 
   if (num >= 10) {
-    console.log(num);
     let numberOfX = Math.floor(num / 10);
     tempCounter = num % 10;
     for (let i = 0; i < numberOfX; i++) romanNumeral.push('X');
@@ -91,7 +89,7 @@ function convertToRoman(num) {
     tempCounter = num % 5;
     for (let i = 0; i < numberOfV; i++) romanNumeral.push('V');
     num = tempCounter;
-    console.log(num);
+
     if (num === 0) return romanNumeral.join('');
   }
 
@@ -111,9 +109,9 @@ function convertToRoman(num) {
   }
 }
 
-const result = convertToRoman(3999);
+// const result = convertToRoman(3999);
 
-console.log(result);
+// console.log(result);
 
 module.exports = convertToRoman;
 
@@ -127,6 +125,12 @@ L represents 50;
 C represents 100; 
 D represents 500 and 
 M represents 1000.
+
+
+Refactor to 2 algos;
+Recursion with two algos
+Regular for algo 1000, 500, 100, 50, 5, 1
+Exceptions for algo: 4, 9, 40, 90, 400, 3900
 
 how to convert roman numerals:
 https://blog.prepscholar.com/roman-numerals-converter

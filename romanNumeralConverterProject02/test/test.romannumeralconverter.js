@@ -14,17 +14,17 @@ describe('Roman Numeral Converter Test Suite', () => {
   });
 
   it('convertToRoman(4) should return the string IV', () => {
-    const result = convertToRoman(3);
+    const result = convertToRoman(4);
     expect(result).to.be.string('IV');
   });
 
   it('convertToRoman(5) should return the string V', () => {
-    const result = convertToRoman(3);
+    const result = convertToRoman(5);
     expect(result).to.be.string('V');
   });
 
   it('convertToRoman(9) should return the string IX', () => {
-    const result = convertToRoman(3);
+    const result = convertToRoman(9);
     expect(result).to.be.string('IX');
   });
 
@@ -39,7 +39,7 @@ describe('Roman Numeral Converter Test Suite', () => {
   });
 
   it('convertToRoman(29) should return the string XXIV.', () => {
-    const result = convertToRoman(16);
+    const result = convertToRoman(29);
     expect(result).to.be.string('XXIX');
   });
 
