@@ -1,139 +1,27 @@
 'use strict';
 
 function telephoneCheck(str) {
-  const removedAllSpecialCharacters = str.replace(
-    /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/g,
-    ''
-  );
+  // 5555555555
+  const p1 = /^[0-9]{3}[0-9]{3}[0-9]{4}$/.test(str);
+  // 555-555-5555
+  const p2 = /^[0-9]{3}[-][0-9]{3}[-][0-9]{4}/.test(str);
+  // (555)555-5555
+  const p3 = /^[(][0-9]{3}[)][0-9]{3}[-][0-9]{4}/.test(str);
+  // 15555555555
+  const p4 = /^[1][0-9]{3}[0-9]{3}[0-9]{4}/.test(str);
+  // 1 555 555 5555
+  const p5 = /^[1]\s[0-9]{3}\s[0-9]{3}\s[0-9]{4}/.test(str);
+  // 1 555-555-5555
+  const p6 = /^[1]\s[0-9]{3}[-][0-9]{3}[-][0-9]{4}/.test(str);
+  // 1 (555) 555-5555
+  const p7 = /^[1]\s[(][0-9]{3}[)]\s[0-9]{3}[-][0-9]{4}/.test(str);
+  // 1(555)555-5555
+  const p8 = /^[1][(][0-9]{3}[)][0-9]{3}[-][0-9]{4}/.test(str);
 
-  const isNum = /^[0-9]+$/.test(str);
-
-  if (removedAllSpecialCharacters.length < 10) {
-    return false;
-  } else if (removedAllSpecialCharacters.length === 11 && str[0] !== '1') {
-    return false;
-  } else if (removedAllSpecialCharacters.length === 10) {
-    //
-    const is3digitsHyphen3digitsHyphen4Digits =
-      /^[0-9]{3}[-][0-9]{3}[-][0-9]{4}/.test(str);
-
-    const isParenthesis3digitsParenthesis3digitsHyphen4Digits =
-      /^[(][0-9]{3}[)][0-9]{3}[-][0-9]{4}/.test(str);
-    //
-    if (isNum) {
-      return true;
-    } else if (is3digitsHyphen3digitsHyphen4Digits) {
-      return true;
-    } else if (isParenthesis3digitsParenthesis3digitsHyphen4Digits) {
-      return true;
-    }
-
-    return false;
-  } else if (removedAllSpecialCharacters.length === 11) {
-    const isSingleDigitSpace3DigitsSpaceDigitsSpace4Digits =
-      /^[1]\s[0-9]{3}\s[0-9]{3}\s[0-9]{4}/.test(str);
-
-    const isSingleDigitSpace3DigitsHyphen3DigitsHyphen4Digits =
-      /^[1]\s[0-9]{3}[-][0-9]{3}[-][0-9]{4}/.test(str);
-
-    const isSingleDigitsSpaceParenthesis3DigitsParenthesisSpace3DigitsHyphen4Digits =
-      /^[1]\s[(][0-9]{3}[)]\s[0-9]{3}[-][0-9]{4}/.test(str);
-
-    const isSingleDigitParenthesis3DigitsParenthesis3DigitsHyphen4Digits =
-      /^[1][(][0-9]{3}[)][0-9]{3}[-][0-9]{4}/.test(str);
-
-    if (isSingleDigitSpace3DigitsSpaceDigitsSpace4Digits) {
-      return true;
-    }
-
-    if (isSingleDigitSpace3DigitsHyphen3DigitsHyphen4Digits) {
-      return true;
-    }
-    if (
-      isSingleDigitsSpaceParenthesis3DigitsParenthesisSpace3DigitsHyphen4Digits
-    ) {
-      return true;
-    }
-
-    if (isSingleDigitParenthesis3DigitsParenthesis3DigitsHyphen4Digits) {
-      return true;
-    }
-    return false;
-  } else {
-    return false;
+  if (p1 || p2 || p3 || p4 || p5 || p6 || p7 || p8) {
+    return true;
   }
+  return false;
 }
-
-console.log(telephoneCheck('1 555)555-5555'));
-
-module.exports = telephoneCheck;
-
-('use strict');
-
-function telephoneCheck(str) {
-  const removedAllSpecialCharacters = str.replace(
-    /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/g,
-    ''
-  );
-
-  const isNum = /^[0-9]+$/.test(str);
-
-  if (removedAllSpecialCharacters.length < 10) {
-    return false;
-  } else if (removedAllSpecialCharacters.length === 11 && str[0] !== '1') {
-    return false;
-  } else if (removedAllSpecialCharacters.length === 10) {
-    //
-    const is3digitsHyphen3digitsHyphen4Digits =
-      /^[0-9]{3}[-][0-9]{3}[-][0-9]{4}/.test(str);
-
-    const isParenthesis3digitsParenthesis3digitsHyphen4Digits =
-      /^[(][0-9]{3}[)][0-9]{3}[-][0-9]{4}/.test(str);
-    //
-    if (isNum) {
-      return true;
-    } else if (is3digitsHyphen3digitsHyphen4Digits) {
-      return true;
-    } else if (isParenthesis3digitsParenthesis3digitsHyphen4Digits) {
-      return true;
-    }
-
-    return false;
-  } else if (removedAllSpecialCharacters.length === 11) {
-    const isSingleDigitSpace3DigitsSpaceDigitsSpace4Digits =
-      /^[1]\s[0-9]{3}\s[0-9]{3}\s[0-9]{4}/.test(str);
-
-    const isSingleDigitSpace3DigitsHyphen3DigitsHyphen4Digits =
-      /^[1]\s[0-9]{3}[-][0-9]{3}[-][0-9]{4}/.test(str);
-
-    const isSingleDigitsSpaceParenthesis3DigitsParenthesisSpace3DigitsHyphen4Digits =
-      /^[1]\s[(][0-9]{3}[)]\s[0-9]{3}[-][0-9]{4}/.test(str);
-
-    const isSingleDigitParenthesis3DigitsParenthesis3DigitsHyphen4Digits =
-      /^[1][(][0-9]{3}[)][0-9]{3}[-][0-9]{4}/.test(str);
-
-    if (isSingleDigitSpace3DigitsSpaceDigitsSpace4Digits) {
-      return true;
-    }
-
-    if (isSingleDigitSpace3DigitsHyphen3DigitsHyphen4Digits) {
-      return true;
-    }
-    if (
-      isSingleDigitsSpaceParenthesis3DigitsParenthesisSpace3DigitsHyphen4Digits
-    ) {
-      return true;
-    }
-
-    if (isSingleDigitParenthesis3DigitsParenthesis3DigitsHyphen4Digits) {
-      return true;
-    }
-    return false;
-  } else {
-    return false;
-  }
-}
-
-console.log(telephoneCheck('1 555)555-5555'));
 
 module.exports = telephoneCheck;
