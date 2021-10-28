@@ -3,8 +3,20 @@ function checkCashRegister(price, cash, cid) {
   let change_Due = cash - price;
   let temp_Change;
   let temp_Multiple;
+  let sum_of_cash_register = 0;
+
+  console.log(cid);
+
+  cid.forEach((element) => {
+    sum_of_cash_register = sum_of_cash_register += element[1];
+  });
+  if (sum_of_cash_register == change_Due) {
+    return { status: 'CLOSED', change: cid };
+  }
 
   // FInal two steps add up total of cash in cash register and if this is equal to the change you can do the status closed return
+
+  // Return {status: "CLOSED", change: [...]} with cash-in-drawer as the value for the key change if it is equal to the change due.
 
   // Insuficient Fund Scenario &&  Scenario with Exact Change
   if (price > cash) {
@@ -444,25 +456,6 @@ function checkCashRegister(price, cash, cid) {
   return change_Return_Object;
 }
 
-// checkCashRegister(3.26, 100, [
-//   ['PENNY', 1.01],
-//   ['NICKEL', 2.05],
-//   ['DIME', 3.1],
-//   ['QUARTER', 4.25],
-//   ['ONE', 90],
-//   ['FIVE', 55],
-//   ['TEN', 20],
-//   ['TWENTY', 60],
-//   ['ONE HUNDRED', 100],
-// ]);
-
-/*
-should return 
-
-{status: "OPEN", change: [["TWENTY", 60], ["TEN", 20],
-["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}.
- */
-
 checkCashRegister(19.5, 20, [
   ['PENNY', 1.01],
   ['NICKEL', 2.05],
@@ -474,11 +467,5 @@ checkCashRegister(19.5, 20, [
   ['TWENTY', 60],
   ['ONE HUNDRED', 100],
 ]);
-
-/*
-
- should return {status: "OPEN", change: [["QUARTER", 0.5]]}.
-
- */
 
 module.exports = checkCashRegister;
