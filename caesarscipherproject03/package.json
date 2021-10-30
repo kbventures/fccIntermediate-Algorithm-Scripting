@@ -1,0 +1,20 @@
+{
+  "name": "caesarscipherproject03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "caesarscipher.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
