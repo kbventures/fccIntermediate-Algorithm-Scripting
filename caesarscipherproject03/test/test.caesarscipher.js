@@ -10,7 +10,7 @@ describe('Caesar Cipher Test Suite', () => {
 
   it('rot13("SERR CVMMN!") should decode to the string FREE PIZZA!', () => {
     const result = rot13('SERR CVMMN!');
-    expect(result).to.be.equal('FREE PIZZA');
+    expect(result).to.be.equal('FREE PIZZA!');
   });
 
   it('rot13("SERR YBIR?") should decode to the string FREE LOVE?', () => {
