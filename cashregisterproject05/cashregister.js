@@ -29,33 +29,34 @@ function checkCashRegister(purchasePrice, cashReceived, cashDrawerArr) {
   }
 
   const CashRegister = (denomination, denominatorString, denominatorIndex) => {
-    // How many potential denominator can we remove from change total
-    const DENOMINATION_MULTIPLES = Math.floor(changeDue / denomination);
-    // How many multiples of currenty denominator are currentlly in the cashReceived register
-    const HOW_MANY_CURRENT_MULTIPLES_CASH_IN_REGISTER =
+    const POTENTIAL_DENOMINATIONS_REMOVABLE_CHANGE = Math.floor(
+      changeDue / denomination
+    );
+    const CURRENT_MULTIPLES_CASH_REGISTER =
       cashDrawerArr[denominatorIndex][1] / denomination;
-    console.log(HOW_MANY_CURRENT_MULTIPLES_CASH_IN_REGISTER);
-    // Not Enough 100 Dollar Bills In Cash Register
-    if (HOW_MANY_CURRENT_MULTIPLES_CASH_IN_REGISTER < DENOMINATION_MULTIPLES) {
+
+    if (
+      CURRENT_MULTIPLES_CASH_REGISTER < POTENTIAL_DENOMINATIONS_REMOVABLE_CHANGE
+    ) {
       STATUS_AND_CHANGE_DUE.change.push([
         denominatorString,
-        HOW_MANY_CURRENT_MULTIPLES_CASH_IN_REGISTER * denomination,
+        CURRENT_MULTIPLES_CASH_REGISTER * denomination,
       ]);
       changeDue =
-        changeDue -
-        (HOW_MANY_CURRENT_MULTIPLES_CASH_IN_REGISTER * denomination).toFixed(2);
-      // console.log('Change due: ', changeDue);
+        changeDue - (CURRENT_MULTIPLES_CASH_REGISTER * denomination).toFixed(2);
     }
-    // Enough 100 Multiples in Cash Register for Change
-    if (HOW_MANY_CURRENT_MULTIPLES_CASH_IN_REGISTER >= DENOMINATION_MULTIPLES) {
+    if (
+      CURRENT_MULTIPLES_CASH_REGISTER >=
+      POTENTIAL_DENOMINATIONS_REMOVABLE_CHANGE
+    ) {
       STATUS_AND_CHANGE_DUE.change.push([
         denominatorString,
-        DENOMINATION_MULTIPLES * denomination,
+        POTENTIAL_DENOMINATIONS_REMOVABLE_CHANGE * denomination,
       ]);
-      changeDue = (changeDue - DENOMINATION_MULTIPLES * denomination).toFixed(
-        2
-      );
-      // console.log('Change due: ', changeDue);
+      changeDue = (
+        changeDue -
+        POTENTIAL_DENOMINATIONS_REMOVABLE_CHANGE * denomination
+      ).toFixed(2);
     }
   };
   let index = 8;
@@ -86,18 +87,3 @@ checkCashRegister(3.26, 100, [
 ]);
 
 module.exports = checkCashRegister;
-
-/*
-{
-      status: 'OPEN',
-      change: [
-        ['TWENTY', 60],
-        ['TEN', 20],
-        ['FIVE', 15],
-        ['ONE', 1],
-        ['QUARTER', 0.5],
-        ['DIME', 0.2],
-        ['PENNY', 0.04],
-      ],
-    }
-*/
