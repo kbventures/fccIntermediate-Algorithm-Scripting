@@ -44,11 +44,7 @@ function checkCashRegister(purchasePrice, cashReceived, cashDrawerArr) {
       ]);
       changeDue =
         changeDue - (CURRENT_MULTIPLES_CASH_REGISTER * denomination).toFixed(2);
-    }
-    if (
-      CURRENT_MULTIPLES_CASH_REGISTER >=
-      POTENTIAL_DENOMINATIONS_REMOVABLE_CHANGE
-    ) {
+    } else {
       STATUS_AND_CHANGE_DUE.change.push([
         denominatorString,
         POTENTIAL_DENOMINATIONS_REMOVABLE_CHANGE * denomination,
